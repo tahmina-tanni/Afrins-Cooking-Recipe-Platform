@@ -1,0 +1,33 @@
+# XAMPP / local files
+xampp/
+*.log
+
+# Environment / secrets
+.env
+
+# PHP session files
+session/
+
+# IDE
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+
+# Database dumps
+*.sql
+
+# Node.js
+node_modules/
+
+# Test coverage
+coverage/
+
+# Uploaded files
+# Keep commented if project images should be uploaded to GitHub
+# uploads/*
