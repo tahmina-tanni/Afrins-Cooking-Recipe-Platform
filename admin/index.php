@@ -8,13 +8,11 @@ require_once '../utils/functions.php';
 // ADMIN SECURITY
 // ==========================================
 
-// Login না করা থাকলে website-এ পাঠাবে
 if (!isLoggedIn()) {
     header('Location: ../index.html');
     exit;
 }
 
-// Admin না হলে access বন্ধ
 if (!isAdmin()) {
     http_response_code(403);
     die('Access Denied: Admin only.');
@@ -22,7 +20,7 @@ if (!isAdmin()) {
 
 
 // ==========================================
-// ADMIN INFORMATION
+// ADMIN INFO
 // ==========================================
 
 $adminName = htmlspecialchars(
@@ -117,7 +115,6 @@ $conn->close();
 
 </head>
 
-
 <body class="bg-gray-100">
 
 
@@ -142,6 +139,8 @@ $conn->close();
         <nav class="space-y-3">
 
 
+            <!-- Dashboard -->
+
             <a
                 href="index.php"
                 class="block px-4 py-3 bg-green-700 rounded-lg"
@@ -154,8 +153,10 @@ $conn->close();
             </a>
 
 
+            <!-- Recipes -->
+
             <a
-                href="#"
+                href="recipes.php"
                 class="block px-4 py-3 hover:bg-green-700 rounded-lg"
             >
 
@@ -166,8 +167,10 @@ $conn->close();
             </a>
 
 
+            <!-- Users -->
+
             <a
-                href="#"
+                href="users.php"
                 class="block px-4 py-3 hover:bg-green-700 rounded-lg"
             >
 
@@ -177,6 +180,8 @@ $conn->close();
 
             </a>
 
+
+            <!-- Categories -->
 
             <a
                 href="#"
@@ -189,6 +194,8 @@ $conn->close();
 
             </a>
 
+
+            <!-- Back to Website -->
 
             <a
                 href="../index.html"
@@ -260,7 +267,9 @@ $conn->close();
 
 
 
-        <!-- DASHBOARD -->
+        <!-- =====================================
+             DASHBOARD CONTENT
+        ====================================== -->
 
         <div class="p-8">
 
@@ -279,7 +288,9 @@ $conn->close();
 
 
 
-            <!-- STAT CARDS -->
+            <!-- =====================================
+                 STAT CARDS
+            ====================================== -->
 
             <div
                 class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
@@ -457,10 +468,14 @@ $conn->close();
 
 
 
-            <!-- SECOND ROW -->
+            <!-- =====================================
+                 SECOND ROW
+            ====================================== -->
 
             <div class="mt-6">
 
+
+                <!-- NEWSLETTER -->
 
                 <div
                     class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 max-w-sm"
@@ -500,6 +515,132 @@ $conn->close();
 
                 </div>
 
+
+            </div>
+
+
+
+            <!-- =====================================
+                 QUICK ACTIONS
+            ====================================== -->
+
+            <div class="mt-10">
+
+                <h3 class="text-xl font-semibold text-gray-800 mb-5">
+                    Quick Actions
+                </h3>
+
+
+                <div
+                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
+                >
+
+
+                    <!-- Manage Recipes -->
+
+                    <a
+                        href="recipes.php"
+                        class="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-md transition"
+                    >
+
+                        <div
+                            class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4"
+                        >
+
+                            <i
+                                class="fas fa-utensils text-green-600 text-xl"
+                            ></i>
+
+                        </div>
+
+
+                        <h4
+                            class="font-semibold text-gray-800 text-lg"
+                        >
+                            Manage Recipes
+                        </h4>
+
+
+                        <p
+                            class="text-gray-500 text-sm mt-2"
+                        >
+                            View, feature and delete recipes
+                        </p>
+
+                    </a>
+
+
+
+                    <!-- Manage Users -->
+
+                    <a
+                        href="users.php"
+                        class="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-md transition"
+                    >
+
+                        <div
+                            class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4"
+                        >
+
+                            <i
+                                class="fas fa-users text-blue-600 text-xl"
+                            ></i>
+
+                        </div>
+
+
+                        <h4
+                            class="font-semibold text-gray-800 text-lg"
+                        >
+                            Manage Users
+                        </h4>
+
+
+                        <p
+                            class="text-gray-500 text-sm mt-2"
+                        >
+                            View users and manage roles
+                        </p>
+
+                    </a>
+
+
+
+                    <!-- View Website -->
+
+                    <a
+                        href="../index.html"
+                        class="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-md transition"
+                    >
+
+                        <div
+                            class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4"
+                        >
+
+                            <i
+                                class="fas fa-external-link-alt text-purple-600 text-xl"
+                            ></i>
+
+                        </div>
+
+
+                        <h4
+                            class="font-semibold text-gray-800 text-lg"
+                        >
+                            View Website
+                        </h4>
+
+
+                        <p
+                            class="text-gray-500 text-sm mt-2"
+                        >
+                            Open the public recipe platform
+                        </p>
+
+                    </a>
+
+
+                </div>
 
             </div>
 
